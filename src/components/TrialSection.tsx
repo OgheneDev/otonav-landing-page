@@ -19,10 +19,6 @@ const TrialSection = () => {
           50% { box-shadow: 0 30px 50px -10px rgba(255,107,107,0.5); }
         }
 
-        .trial-card {
-          animation: float 6s ease-in-out infinite;
-        }
-
         .cta-glow {
           animation: pulse-glow 3s ease-in-out infinite;
         }
@@ -40,8 +36,8 @@ const TrialSection = () => {
         />
 
         <div className="container mx-auto relative z-10 max-w-4xl">
-          {/* Main Trial Card */}
-          <div className="trial-card bg-gradient-to-br from-white to-[#fafafa] border border-[#ECEEF2] rounded-[48px] p-16 sm:p-12 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.15)] text-center">
+          {/* Content - no card, just normal flow */}
+          <div className="text-center">
             {/* Icon */}
             <div className="flex justify-center mb-6">
               <div className="w-20 h-20 rounded-[30px] bg-[#FFF1F1] flex items-center justify-center">
@@ -92,9 +88,9 @@ const TrialSection = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <button className="cta-glow flex items-center gap-3 bg-gradient-to-r from-[#FF6B6B] to-[#FF5252] text-white border-none rounded-2xl px-9 py-4.5 text-base font-bold font-['Sora'] cursor-pointer shadow-[0_10px_25px_rgba(255,107,107,0.4)] tracking-[0.3px] transition-all duration-300 hover:-translate-y-0.5">
-                Early Access
+            <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
+              <button className="cta-glow flex justify-center items-center gap-3 bg-gradient-to-r from-[#FF6B6B] to-[#FF5252] text-white border-none rounded-2xl px-9 py-4.5 text-base font-bold font-['Sora'] cursor-pointer shadow-[0_10px_25px_rgba(255,107,107,0.4)] tracking-[0.3px] transition-all duration-300 hover:-translate-y-0.5">
+                Join Early Access
                 <ArrowRight size={15} />
               </button>
 

@@ -135,7 +135,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Dropdown */}
         {isOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl p-6 flex flex-col space-y-3 dropdown-animate">
+          <div className="lg:hidden absolute top-full h-screen left-0 w-full bg-white border-t border-gray-100 shadow-xl p-6 flex flex-col space-y-3 dropdown-animate">
             {navLinks.map((link) => (
               <div key={link.name}>
                 <Link
