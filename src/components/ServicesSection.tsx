@@ -299,18 +299,20 @@ const ServicesSection = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Header */}
           <div className="mb-16">
-            <div className="tag-pill">
-              <span className="tag-dot" />
-              KEY FEATURES
+            <div className="flex justify-center">
+              <div className="tag-pill ">
+                <span className="tag-dot" />
+                KEY FEATURES
+              </div>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-[#141414] leading-tight tracking-tight">
+            <h2 className="text-4xl md:text-5xl text-center font-bold text-[#141414] leading-tight tracking-tight">
               Everything you need to{" "}
               <span className="text-[#FF6B6B]">stay in control</span>
             </h2>
-            <div className="underline-accent" />
+            <div className="underline-accent mx-auto" />
 
-            <p className="mt-5 text-slate-500 text-base max-w-lg leading-relaxed">
+            <p className="mt-5 text-slate-500 text-center text-base max-w-lg leading-relaxed">
               Simple, powerful tools that eliminate delivery uncertainty and
               protect your reputation.
             </p>
@@ -333,7 +335,6 @@ const ServicesSection = () => {
                     style={{ fontWeight: 700 }}
                   >
                     {service.title}
-                    {index === 4 && <span className="feature-badge">NEW</span>}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     {service.description}
@@ -396,10 +397,10 @@ const ServicesSection = () => {
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="btn-outline w-full sm:w-auto">
+            <button className="btn-outline w-full text-center justify-center sm:w-auto">
               See All Features
             </button>
-            <button className="btn-primary w-full sm:w-auto">
+            <button className="btn-primary w-full justify-center sm:w-auto">
               Start Protecting Your Deliveries
               <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
             </button>
