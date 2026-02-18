@@ -52,106 +52,37 @@ const Footer = () => {
         fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif",
         background:
           "linear-gradient(135deg, #FF5252 0%, #FF6B6B 40%, #FF8A65 100%)",
-        position: "relative",
-        overflow: "hidden",
       }}
-      className="w-full text-white"
+      className="w-full text-white relative overflow-hidden"
     >
       {/* Decorative background shapes */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-120px",
-          right: "-80px",
-          width: "420px",
-          height: "420px",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.05)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-60px",
-          left: "10%",
-          width: "280px",
-          height: "280px",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.04)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "40%",
-          left: "35%",
-          width: "160px",
-          height: "160px",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.03)",
-          pointerEvents: "none",
-        }}
-      />
+      <div className="absolute -top-[120px] -right-20 w-[420px] h-[420px] rounded-full bg-white/5 pointer-events-none" />
+      <div className="absolute -bottom-16 left-[10%] w-[280px] h-[280px] rounded-full bg-white/4 pointer-events-none" />
+      <div className="absolute top-[40%] left-[35%] w-[160px] h-[160px] rounded-full bg-white/3 pointer-events-none" />
 
       {/* Top accent bar */}
-      <div
-        style={{
-          height: "3px",
-          background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), rgba(255,255,255,0.9), rgba(255,255,255,0.6), transparent)",
-        }}
-      />
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-white/60 via-white/90 to-white/60 to-transparent" />
 
-      <div
-        style={{ maxWidth: "1280px", margin: "0 auto", padding: "64px 32px 0" }}
-      >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20">
         {/* Main Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "48px",
-            marginBottom: "56px",
-          }}
-        >
-          {/* Brand Column */}
-          <div style={{ gridColumn: "span 2", minWidth: "220px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-14">
+          {/* Brand Column - spans 2 columns on large screens */}
+          <div className="lg:col-span-2">
             {/* Logo */}
-            <div style={{ marginBottom: "20px" }}>
-              <span
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "800",
-                  letterSpacing: "-1px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                }}
-              >
+            <div className="mb-5">
+              <span className="text-3xl sm:text-4xl font-extrabold tracking-tight inline-flex items-center gap-1.5">
                 OtoNav
               </span>
             </div>
 
-            <p
-              style={{
-                color: "rgba(255,255,255,0.85)",
-                fontSize: "14px",
-                lineHeight: "1.75",
-                maxWidth: "300px",
-                marginBottom: "28px",
-              }}
-            >
+            <p className="text-white/85 text-sm sm:text-base leading-relaxed max-w-[300px] mb-7">
               OtoNav delivers unparalleled customer service through dedicated
               teams, agile culture, and a global footprint — bringing your
               shipments home, faster.
             </p>
 
             {/* Contact info */}
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
+            <div className="flex flex-col gap-2.5">
               {[
                 { icon: <MapPin size={14} />, text: "Lagos, Nigeria" },
                 { icon: <Phone size={14} />, text: "+234 800 123 4567" },
@@ -159,15 +90,9 @@ const Footer = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    color: "rgba(255,255,255,0.75)",
-                    fontSize: "13px",
-                  }}
+                  className="flex items-center gap-2 text-white/75 text-xs sm:text-sm"
                 >
-                  <span style={{ opacity: 0.9 }}>{item.icon}</span>
+                  <span className="opacity-90">{item.icon}</span>
                   {item.text}
                 </div>
               ))}
@@ -175,57 +100,26 @@ const Footer = () => {
           </div>
 
           {/* Explore Column */}
-          <div>
-            <h3
-              style={{
-                fontSize: "11px",
-                fontWeight: "700",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.55)",
-                marginBottom: "20px",
-              }}
-            >
+          <div className="lg:col-span-1">
+            <h3 className="text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-5">
               Explore
             </h3>
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                flexDirection: "column",
-                gap: "4px",
-              }}
-            >
+            <ul className="list-none p-0 m-0 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onMouseEnter={() => setHovered(link.label)}
                     onMouseLeave={() => setHovered(null)}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "4px",
-                      color:
-                        hovered === link.label
-                          ? "#fff"
-                          : "rgba(255,255,255,0.8)",
-                      fontSize: "14px",
-                      fontWeight: hovered === link.label ? "600" : "400",
-                      textDecoration: "none",
-                      padding: "6px 0",
-                      transition: "all 0.2s ease",
-                      transform:
-                        hovered === link.label
-                          ? "translateX(4px)"
-                          : "translateX(0)",
-                    }}
+                    className={`inline-flex items-center gap-1 text-sm py-1.5 transition-all duration-200 ${
+                      hovered === link.label
+                        ? "text-white font-semibold translate-x-1"
+                        : "text-white/80 font-normal translate-x-0"
+                    }`}
                   >
                     {link.label}
                     {hovered === link.label && (
-                      <ArrowUpRight size={13} style={{ opacity: 0.8 }} />
+                      <ArrowUpRight size={13} className="opacity-80" />
                     )}
                   </a>
                 </li>
@@ -234,57 +128,26 @@ const Footer = () => {
           </div>
 
           {/* Legal Column */}
-          <div>
-            <h3
-              style={{
-                fontSize: "11px",
-                fontWeight: "700",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.55)",
-                marginBottom: "20px",
-              }}
-            >
+          <div className="lg:col-span-1">
+            <h3 className="text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-5">
               Legal
             </h3>
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                flexDirection: "column",
-                gap: "4px",
-              }}
-            >
+            <ul className="list-none p-0 m-0 flex flex-col gap-1">
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onMouseEnter={() => setHovered(link.label)}
                     onMouseLeave={() => setHovered(null)}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "4px",
-                      color:
-                        hovered === link.label
-                          ? "#fff"
-                          : "rgba(255,255,255,0.8)",
-                      fontSize: "14px",
-                      fontWeight: hovered === link.label ? "600" : "400",
-                      textDecoration: "none",
-                      padding: "6px 0",
-                      transition: "all 0.2s ease",
-                      transform:
-                        hovered === link.label
-                          ? "translateX(4px)"
-                          : "translateX(0)",
-                    }}
+                    className={`inline-flex items-center gap-1 text-sm py-1.5 transition-all duration-200 ${
+                      hovered === link.label
+                        ? "text-white font-semibold translate-x-1"
+                        : "text-white/80 font-normal translate-x-0"
+                    }`}
                   >
                     {link.label}
                     {hovered === link.label && (
-                      <ArrowUpRight size={13} style={{ opacity: 0.8 }} />
+                      <ArrowUpRight size={13} className="opacity-80" />
                     )}
                   </a>
                 </li>
@@ -293,104 +156,34 @@ const Footer = () => {
           </div>
 
           {/* Newsletter Column */}
-          <div>
-            <h3
-              style={{
-                fontSize: "11px",
-                fontWeight: "700",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.55)",
-                marginBottom: "20px",
-              }}
-            >
+          <div className="lg:col-span-1">
+            <h3 className="text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-5">
               Stay Updated
             </h3>
-            <p
-              style={{
-                fontSize: "13px",
-                color: "rgba(255,255,255,0.75)",
-                marginBottom: "16px",
-                lineHeight: "1.6",
-              }}
-            >
+            <p className="text-xs sm:text-sm text-white/75 mb-4 leading-relaxed">
               Get shipping tips and news delivered to your inbox.
             </p>
 
             {subscribed ? (
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.15)",
-                  borderRadius: "12px",
-                  padding: "12px 16px",
-                  fontSize: "13px",
-                  color: "#fff",
-                  fontWeight: "500",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
+              <div className="bg-white/15 rounded-xl p-3 text-sm text-white font-medium backdrop-blur-sm">
                 ✓ You're subscribed!
               </div>
             ) : (
               <form
                 onSubmit={handleSubscribe}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                }}
+                className="flex flex-col gap-2.5"
               >
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  style={{
-                    background: "rgba(255,255,255,0.12)",
-                    border: "1px solid rgba(255,255,255,0.25)",
-                    borderRadius: "10px",
-                    padding: "11px 14px",
-                    color: "#fff",
-                    fontSize: "13px",
-                    outline: "none",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    backdropFilter: "blur(4px)",
-                    transition: "border-color 0.2s",
-                  }}
-                  onFocus={(e) =>
-                    (e.target.style.borderColor = "rgba(255,255,255,0.6)")
-                  }
-                  onBlur={(e) =>
-                    (e.target.style.borderColor = "rgba(255,255,255,0.25)")
-                  }
+                  className="bg-white/12 border border-white/25 rounded-xl px-3.5 py-2.5 text-white text-xs sm:text-sm outline-none w-full box-border backdrop-blur-sm transition-colors placeholder:text-white/40 focus:border-white/60"
+                  required
                 />
                 <button
                   type="submit"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,1)";
-                    e.currentTarget.style.color = "#FF5252";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.9)";
-                    e.currentTarget.style.color = "#FF5252";
-                  }}
-                  style={{
-                    background: "rgba(255,255,255,0.9)",
-                    color: "#FF5252",
-                    border: "none",
-                    borderRadius: "10px",
-                    padding: "11px 16px",
-                    fontSize: "13px",
-                    fontWeight: "700",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "6px",
-                    transition: "all 0.2s ease",
-                    letterSpacing: "0.3px",
-                  }}
+                  className="bg-white/90 text-[#FF5252] border-none rounded-xl px-4 py-2.5 text-xs sm:text-sm font-bold cursor-pointer flex items-center justify-center gap-1.5 transition-all duration-200 hover:bg-white hover:scale-[1.02] active:scale-[0.98] tracking-[0.3px]"
                 >
                   Subscribe <Send size={14} />
                 </button>
@@ -398,50 +191,16 @@ const Footer = () => {
             )}
 
             {/* Social Icons */}
-            <div style={{ marginTop: "24px" }}>
-              <p
-                style={{
-                  fontSize: "11px",
-                  fontWeight: "700",
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.55)",
-                  marginBottom: "12px",
-                }}
-              >
+            <div className="mt-6">
+              <p className="text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-3">
                 Follow Us
               </p>
-              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              <div className="flex gap-2 flex-wrap">
                 {socials.map((item) => (
                   <button
                     key={item.key}
                     aria-label={item.label}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#fff";
-                      e.currentTarget.style.transform = "translateY(-3px)";
-                      e.currentTarget.style.boxShadow =
-                        "0 8px 20px rgba(0,0,0,0.15)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background =
-                        "rgba(255,255,255,0.15)";
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                    style={{
-                      width: "38px",
-                      height: "38px",
-                      borderRadius: "10px",
-                      background: "rgba(255,255,255,0.15)",
-                      border: "1px solid rgba(255,255,255,0.2)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#fff",
-                      cursor: "pointer",
-                      transition: "all 0.25s ease",
-                      backdropFilter: "blur(4px)",
-                    }}
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center text-white cursor-pointer transition-all duration-250 backdrop-blur-sm hover:bg-white hover:text-[#FF5252] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]"
                   >
                     {item.icon}
                   </button>
@@ -452,53 +211,22 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div
-          style={{
-            height: "1px",
-            background:
-              "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-            marginBottom: "28px",
-          }}
-        />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mb-7" />
 
         {/* Bottom bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "16px",
-            paddingBottom: "36px",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <div
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                background: "rgba(255,255,255,0.6)",
-                animation: "pulse 2s infinite",
-              }}
-            />
-            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)" }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-9">
+          <div className="flex items-center gap-2 order-2 sm:order-1">
+            <div className="w-2 h-2 rounded-full bg-white/60 animate-pulse" />
+            <span className="text-xs sm:text-sm text-white/65">
               © {new Date().getFullYear()} OtoNav. All rights reserved.
             </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>
+          <div className="flex items-center gap-1.5 order-1 sm:order-2">
+            <span className="text-[11px] sm:text-xs text-white/50">
               Powered by
             </span>
-            <span
-              style={{
-                fontSize: "14px",
-                fontWeight: "800",
-                letterSpacing: "-0.5px",
-                color: "#fff",
-              }}
-            >
+            <span className="text-sm sm:text-base font-extrabold tracking-tight text-white">
               otonav.com.ng
             </span>
           </div>
@@ -511,7 +239,6 @@ const Footer = () => {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.5; transform: scale(0.85); }
         }
-        input::placeholder { color: rgba(255,255,255,0.4); }
       `}</style>
     </footer>
   );
