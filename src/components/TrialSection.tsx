@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ArrowRight, Check } from "lucide-react";
 
 const TrialSection = () => {
   return (
@@ -27,59 +28,23 @@ const TrialSection = () => {
         }
       `}</style>
 
-      <section
-        style={{ fontFamily: "'DM Sans', sans-serif", background: "#ffffff" }}
-        className="relative overflow-hidden py-24 px-6 md:px-20"
-      >
+      <section className="font-['DM_Sans'] bg-white relative overflow-hidden py-24 px-6 md:px-20">
         {/* Background decoration */}
         <div
           aria-hidden
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "800px",
-            height: "800px",
             background:
               "radial-gradient(circle, rgba(255,107,107,0.03) 0%, transparent 70%)",
-            borderRadius: "50%",
-            pointerEvents: "none",
           }}
         />
 
         <div className="container mx-auto relative z-10 max-w-4xl">
           {/* Main Trial Card */}
-          <div
-            className="trial-card"
-            style={{
-              background: "linear-gradient(145deg, #ffffff, #fafafa)",
-              border: "1px solid #ECEEF2",
-              borderRadius: "48px",
-              padding: "64px 48px",
-              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.15)",
-              textAlign: "center",
-            }}
-          >
+          <div className="trial-card bg-gradient-to-br from-white to-[#fafafa] border border-[#ECEEF2] rounded-[48px] p-16 sm:p-12 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.15)] text-center">
             {/* Icon */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "24px",
-              }}
-            >
-              <div
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  borderRadius: "30px",
-                  background: "#FFF1F1",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+            <div className="flex justify-center mb-6">
+              <div className="w-20 h-20 rounded-[30px] bg-[#FFF1F1] flex items-center justify-center">
                 <svg
                   width="40"
                   height="40"
@@ -99,36 +64,14 @@ const TrialSection = () => {
             </div>
 
             {/* Main Headline */}
-            <h2
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontSize: "clamp(42px, 6vw, 56px)",
-                fontWeight: 800,
-                lineHeight: 1.1,
-                letterSpacing: "-1.5px",
-                color: "#0f172a",
-                margin: "0 0 20px",
-              }}
-            >
+            <h2 className="font-['Sora'] text-[clamp(42px,6vw,56px)] font-extrabold leading-[1.1] tracking-[-1.5px] text-slate-900 m-0 mb-5">
               Start Your{" "}
-              <span
-                style={{
-                  color: "#FF6B6B",
-                  position: "relative",
-                  display: "inline-block",
-                }}
-              >
+              <span className="text-[#FF6B6B] relative inline-block">
                 14-Day Free Trial
                 <svg
                   aria-hidden
                   viewBox="0 0 280 12"
-                  style={{
-                    position: "absolute",
-                    bottom: "-8px",
-                    left: 0,
-                    width: "100%",
-                    height: "12px",
-                  }}
+                  className="absolute -bottom-2 left-0 w-full h-3"
                 >
                   <path
                     d="M2 6 Q70 1 140 6 Q210 11 278 6"
@@ -143,108 +86,33 @@ const TrialSection = () => {
             </h2>
 
             {/* Supporting line */}
-            <p
-              style={{
-                fontSize: "18px",
-                lineHeight: 1.6,
-                color: "#475569",
-                maxWidth: "500px",
-                margin: "0 auto 40px",
-              }}
-            >
+            <p className="text-lg leading-relaxed text-slate-600 max-w-[500px] mx-auto mb-10">
               Built for vendors across Nigeria. No commitment. No risk. See how
               it works for your business.
             </p>
 
             {/* CTA Buttons */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "16px",
-                justifyContent: "center",
-                marginBottom: "32px",
-              }}
-            >
-              <button
-                className="cta-glow"
-                style={{
-                  background: "linear-gradient(135deg, #FF6B6B, #FF5252)",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "16px",
-                  padding: "18px 36px",
-                  fontSize: "16px",
-                  fontWeight: 700,
-                  fontFamily: "'Sora', sans-serif",
-                  cursor: "pointer",
-                  boxShadow: "0 10px 25px rgba(255,107,107,0.4)",
-                  letterSpacing: "0.3px",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                Join Early Access →
+            <div className="flex flex-wrap gap-4 justify-center mb-8">
+              <button className="cta-glow flex items-center gap-3 bg-gradient-to-r from-[#FF6B6B] to-[#FF5252] text-white border-none rounded-2xl px-9 py-4.5 text-base font-bold font-['Sora'] cursor-pointer shadow-[0_10px_25px_rgba(255,107,107,0.4)] tracking-[0.3px] transition-all duration-300 hover:-translate-y-0.5">
+                Early Access
+                <ArrowRight size={15} />
               </button>
 
-              <button
-                style={{
-                  background: "#fff",
-                  color: "#FF6B6B",
-                  border: "1.5px solid #FF6B6B",
-                  borderRadius: "16px",
-                  padding: "18px 36px",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  fontFamily: "'Sora', sans-serif",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#FFF1F1";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#fff";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
+              <button className="bg-white text-[#FF6B6B] border-2 border-[#FF6B6B] rounded-2xl px-9 py-4.5 text-base font-semibold font-['Sora'] cursor-pointer transition-all duration-300 hover:bg-[#FFF1F1] hover:-translate-y-0.5">
                 Request Demo
               </button>
             </div>
 
             {/* Trust badges */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "24px",
-                justifyContent: "center",
-                marginTop: "16px",
-              }}
-            >
+            <div className="flex flex-wrap gap-6 justify-center mt-4">
               {[
                 "No credit card required",
                 "Cancel anytime",
                 "Free support",
               ].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                  }}
-                >
-                  <span style={{ color: "#2DD4BF", fontSize: "14px" }}>✓</span>
-                  <span style={{ fontSize: "13px", color: "#64748b" }}>
-                    {item}
-                  </span>
+                <div key={item} className="flex items-center gap-1.5">
+                  <Check size={14} className="text-[#2DD4BF]" />
+                  <span className="text-[10px] text-slate-500">{item}</span>
                 </div>
               ))}
             </div>
